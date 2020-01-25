@@ -1,3 +1,10 @@
+1.0.0: update base image release
+- switched to the latest base image: minimal-64-lts 19.4.0 
+
+0.7.1: bugfix release
+- Add request throttling on /api
+- Remove wget dependency in favour of net/http
+
 0.6.7: bugfix release
 - BUGFIX: syncing from the /api/datasets route should sync manifest options
 - sync for LX brand images

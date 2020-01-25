@@ -8,11 +8,14 @@ fi
 
 if [[ ! -e /data/config.json ]]; then
   log "creating initial configuration"
-
+  BASEURL="http://${HOSTNAME}"
+  if mdata-get base_url 1>/dev/null 2>&1; then
+    BASEURL=`mdata-get base_url`
+  fi
   cat > /data/config.json << EOF
 {
   "log_level": "info",
-  "base_url": "http://${HOSTNAME}/",
+  "base_url": "${BASEURL}/",
   "mount_ui": "/opt/dsapid/ui",
   "listen": {
     "http": {
